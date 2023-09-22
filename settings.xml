@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <pluginGroups>
+    <!-- Specifies a further group identifier to use for plugin lookup.
+    <pluginGroup>com.your.plugins</pluginGroup>
+    -->
+  </pluginGroups>
+
+  <proxies>
+    <!-- Add proxy configuration if needed -->
+  </proxies>
+
+  <servers>
+
+  <server>
+    <id>nexus</id>
+    <username>admin</username>
+    <password>Dk@123</password>
+  </server>
+
+    <!-- Add server authentication information if needed -->
+  </servers>
+
+  <mirrors>
+    <!-- Add repository mirrors if needed -->
+  </mirrors>
+
+  <profiles>
+    <profile>
+      <id>env-dev</id>
+      <activation>
+        <property>
+          <name>target-env</name>
+          <value>dev</value>
+        </property>
+      </activation>
+      <properties>
+        <tomcatPath>/path/to/tomcat/instance</tomcatPath>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>snapshot</id>
+      <repositories>
+        <repository>
+          <id>nexus</id>
+          <name>maven</name>
+          <url>http://192.168.81.251:8081/repository/maven/</url>
+        </repository>
+      </repositories>
+    </profile>
+
+    <profile>
+      <id>release</id>
+      <repositories>
+        <repository>
+          <id>nexus</id>
+          <name>maven</name>
+          <url>http://192.168.81.251:8081/repository/maven/</url>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+</settings>
